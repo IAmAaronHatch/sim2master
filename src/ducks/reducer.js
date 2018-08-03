@@ -37,7 +37,7 @@ export function getHouses() {
     }
 }
 
-export function addHouse(){
+export function addHouse(id){
     let houseList = axios.post('/api/house').then(results => {
         return results.data
     })
@@ -83,9 +83,11 @@ export function addState(state) {
     }
 }
 export function addZipcode(zipcode) {
+   
     return {
         type: ADD_ZIPCODE,
-        payload: zipcode
+        payload: zipcode,
+        
     }
 }
 export function addImage(image) {
@@ -117,7 +119,7 @@ export default function reducer(state = initialState, action) {
         case ADD_HOUSE+ + FULFILLED:
             return Object.assign({}, state, {houseList: action.payload})
         case ADD_NAME + FULFILLED:
-            return Object.assign({}, state, {name:action.paylaod})
+            return Object.assign({}, state, { name: action.paylaod})
         case ADD_ADDRESS + FULFILLED:
             return Object.assign({}, state, { address: action.paylaod})
         case ADD_CITY + FULFILLED:

@@ -5,7 +5,7 @@ import { Route } from 'react-router-dom'
 import StepOne from './Step1'
 import StepTwo from './Step2'
 import StepThree from './Step3'
-import '../App.css';
+// import '../App.css';
 
 
 class Wizard extends Component {

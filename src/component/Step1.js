@@ -8,32 +8,33 @@ import { addName, addAddress, addCity, addState, addZipcode } from '../ducks/red
 
 class StepOne extends Component {
     render() {
+        // console.log('hello', this.props)
         return (
             <div>
-                <input type='text' 
-                //value={this.state.name} 
-                onChange={this.props.addName} 
-                placeholder='name' />
+                <input type='text'
+                    //value={this.state.name} 
+                    onChange={this.props.addName}
+                    placeholder='name' />
 
-                <input type='text' 
-                // value={this.state.address} 
-                onChange={this.props.addAddress} 
-                placeholder='address' />
+                <input type='text'
+                    // value={this.state.address} 
+                    onChange={this.props.addAddress}
+                    placeholder='address' />
 
-                <input type='text' 
-                // value={this.state.city} 
-                onChange={this.props.addCity} 
-                placeholder='city' />
+                <input type='text'
+                    // value={this.state.city} 
+                    onChange={this.props.addCity}
+                    placeholder='city' />
 
-                <input type='text' 
-                // value={this.state.state} 
-                onChange={this.props.addState} 
-                placeholder='state' />
+                <input type='text'
+                    // value={this.state.state} 
+                    onChange={this.props.addState}
+                    placeholder='state' />
 
-                <input type='number' 
-                // value={this.state.zipcode} 
-                onChange={this.props.addZipcode}  
-                placeholder='zipcode' />
+                <input type='number'
+                    // value={this.props.addZipcode}
+                    onChange={this.props.addZipcode}
+                    placeholder='zipcode' />
 
                 <Link to='/'><button>Back</button></Link>
                 <Link to='/wizard/step2'><button>Next</button></Link>
@@ -52,4 +53,4 @@ let mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps, {addName, addAddress, addCity, addState, addZipcode})(StepOne)
+export default connect(mapStateToProps, { addName, addAddress, addCity, addState, addZipcode })(StepOne)

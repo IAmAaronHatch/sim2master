@@ -1,36 +1,36 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
-import axios from 'axios'
+// import axios from 'axios'
 import {addHouse} from '../ducks/reducer'
 
 class StepThree extends Component {
-    constructor() {
-        super()
+    // constructor() {
+    //     super()
 
-        this.state = {
-            houseList: [],
-            name: '',
-            address: '',
-            city: '',
-            state: '',
-            zipcode: 0,
-            image: '',
-            mortgage: 0,
-            rent: 0,
-        }
-    }
+    //     this.state = {
+    //         houseList: [],
+    //         name: '',
+    //         address: '',
+    //         city: '',
+    //         state: '',
+    //         zipcode: 0,
+    //         image: '',
+    //         mortgage: 0,
+    //         rent: 0,
+    //     }
+    // }
 
-    addHouse = () => {
-        const { name, address, city, state, zipcode, image, mortgage, rent } = this.state
-        const newHouse = { name, address, city, state, zipcode, image, mortgage, rent }
-        axios.post('/api/house', newHouse).then(results => {
-            this.setState({
-                houseList: results.data,
+    // addHouse = () => {
+    //     const { name, address, city, state, zipcode, image, mortgage, rent } = this.state
+    //     const newHouse = { name, address, city, state, zipcode, image, mortgage, rent }
+    //     axios.post('/api/house', newHouse).then(results => {
+    //         this.setState({
+    //             houseList: results.data,
 
-            })
-        })
-    }
+    //         })
+    //     })
+    // }
 
     render() {
         return (
