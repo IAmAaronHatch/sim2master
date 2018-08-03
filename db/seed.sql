@@ -13,4 +13,10 @@ insert into houses (
     'Aaron', '123 fake lane drive', 'Salt Lake City', 'UT', 90000
 ), ('Hannah', '124 fakest lane drive', 'SLC', 'UT', 90000);
 
+alter table houses
+add image text,
+monthlyMortgage integer,
+desiredRent integer;
+
 select * from houses;
+

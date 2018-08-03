@@ -15,7 +15,7 @@ class Wizard extends Component {
             state: '',
             zipcode: 0,
             houses: [],
-            
+
         }
     }
 
@@ -52,7 +52,7 @@ class Wizard extends Component {
         axios.post('/api/house', newHouse).then(results => {
             this.setState({
                 houses: results.data,
-                
+
             })
         })
     }
