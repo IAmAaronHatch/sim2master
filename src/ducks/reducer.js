@@ -43,7 +43,7 @@ export function addHouse(id){
     })
     return {
         type: ADD_HOUSE,
-        payload: houseList,
+        payload:houseList,
     }
 
 }
@@ -137,3 +137,8 @@ export default function reducer(state = initialState, action) {
         default: return state
     }
 }
+
+//BIG IDEA
+//What if in the inital state, i make a houseList: {} and each key value pair is name, address, etc. 
+//In the functions, it would be houseList.name, etc 
+//This way, I can keep all the information from state in one location to bring it down later in just one keyvalue pair, the houseList.
