@@ -6,7 +6,7 @@ module.exports = {
         db.get_houses()
             .then(results => {
                 res.status(200).send(results)
-            })
+            }) 
             .catch(err => {
                 res.status(500).send({ errorMessage: 'Oops! Something went wrong!' })
                 console.log(err)

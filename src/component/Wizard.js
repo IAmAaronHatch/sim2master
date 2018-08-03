@@ -58,10 +58,10 @@ class Wizard extends Component {
                 <input type='text' value={this.state.city} onChange={this.handleCity} placeholder='city' />
 
 
-                <input type='text' value={this.state.state} onChange={this.handleState} placeholder='state' maxlength='2'/>
+                <input type='text' value={this.state.state} onChange={this.handleState} placeholder='state' />
 
 
-                <input type='number' value={this.state.zipcode} onChange={this.handleZip} placeholder='zipcode' maxlength='5'/>
+                <input type='number' value={this.state.zipcode} onChange={this.handleZip} placeholder='zipcode' />
 
                 <Link to='/'><button>Cancel</button></Link>
             </div>

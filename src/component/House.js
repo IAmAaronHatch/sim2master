@@ -1,9 +1,12 @@
 import React from 'react'
 
-function House () {
+function House (props) {
     return (
         <div>
-            House
+            <h3>House</h3>
+            
+
+            <button>Delete</button>
         </div>
     )
 }

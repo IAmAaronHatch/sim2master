@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
-// import axios from 'axios'
+import axios from 'axios'
 import House from './House'
 
 import {Link} from 'react-router-dom'
-import axios from 'axios'
+// import { connect } from 'react-redux'
+// import {getHouses} from '../ducks/reducer'
 
 class Dashboard extends Component {
     constructor() {
@@ -24,21 +25,32 @@ class Dashboard extends Component {
 
 
     render() {
-        let mappedHouses = this.state.houses.map(() => {
-            return (
-                <House />
-            )
-        })
+        
         return (
-            <div>
+            <div className='Main-DashBoard'>
                 Dashboard!!
-                {mappedHouses}
-                {/* map over the list in render, return House for each house */}
+                {
+                    this.state.houses.map((element, index) => {
+                        return (
+                            <House houses={element}/>
+                        )
+                    })
+                }
+                
+                
                 <Link to='/wizard'><button>Add New Property</button></Link>
             </div>
         )
     }
 }
 
+// function mapStateToProps(state){
+//     return {
+//         houseList: state.houseList
+//     }
+// }
+
 //NEXT STEP AS OF 11:08 mapSTATEtoProps!
+// export default connect(mapStateToProps, {getHouses})(Dashboard)
+
 export default Dashboard

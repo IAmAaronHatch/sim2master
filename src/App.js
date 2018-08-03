@@ -16,9 +16,6 @@ class App extends Component {
       <div className="App">
         <Header />
 
-        {/* <Link to='/'><button>Go to Dashboard</button></Link> */}
-        {/* <Link to='/wizard'><button>Go to Wizard</button></Link> */}
-
         <Switch>
           <Route exact path='/' component={Dashboard} />
           <Route path='/wizard' component={Wizard} />

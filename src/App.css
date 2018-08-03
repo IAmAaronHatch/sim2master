@@ -1,10 +1,11 @@
 .App {
   text-align: center;
+  background-color: #AFD4C0;
+  height: 100vh;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+.Main-DashBoard {
+  background-color: #e5f4ec;
 }
 
 .App-header {
