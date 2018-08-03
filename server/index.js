@@ -19,9 +19,9 @@ massive ( CONNECTION_STRING ).then( db => {
 
 
 app.get('/api/houses', controller.getHouses)
-//app.post('/', )
+app.post('/api/house', controller.addHouse)
 //app.put('/', )
-//app.delete('/', )
+app.delete('/api/house/:id', controller.deleteHouse)
 
 
 

@@ -7,8 +7,8 @@ import {Link} from 'react-router-dom'
 // import {getHouses} from '../ducks/reducer'
 
 class Dashboard extends Component {
-    constructor() {
-        super()
+    constructor(props) {
+        super(props)
 
         this.state = {
             houses: [],
@@ -23,22 +23,43 @@ class Dashboard extends Component {
         })
     }
 
+    deleteHouse=(id)=>{
+        axios.delete(`/api/house/${id}`).then(results => {
+            this.updateHouses(results.data)
+        })
+    }
+
+    updateHouses = (houses) => {
+        this.setState({houses})
+    }
+
 
     render() {
         
         return (
             <div className='Main-DashBoard'>
-                Dashboard!!
+                <h1>Dashboard</h1>
+                    <Link to='/wizard'><button>Add New Property</button></Link>
+
+
+                <h3>Home Listings</h3>
                 {
                     this.state.houses.map((element, index) => {
                         return (
-                            <House houses={element}/>
+                            <House 
+                            deleteHouse={this.deleteHouse}
+                            id={element.id}
+                            name={element.name}
+                            address={element.address}
+                            city={element.city}
+                            state={element.state}
+                            zipcode={element.zipcode}
+                            />
                         )
                     })
                 }
                 
                 
-                <Link to='/wizard'><button>Add New Property</button></Link>
             </div>
         )
     }
