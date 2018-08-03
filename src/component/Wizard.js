@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 // import axios from 'axios'
 
+import { Link } from 'react-router-dom'
+
 class Wizard extends Component {
     constructor() {
         super()
@@ -15,6 +17,8 @@ class Wizard extends Component {
         return (
             <div>
             Wizard
+
+            <Link to='/'><button>Cancel</button></Link>
             </div>
         )
     }
