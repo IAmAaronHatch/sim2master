@@ -1,8 +1,9 @@
+//require
 const express = require('express')
 const bodyParser = require('body-parser')
-// const massive = require('massive')
+const massive = require('massive')
+require('dotenv').config()
 
-// require('dotenv').config()
 
 const app = express()
 
@@ -10,11 +11,11 @@ const {CONNECTION_STRING} = process.env
 
 app.use(bodyParser.json())
 
-// massive ( process.env.CONNECTION_STRING ).then( db => {
-//     app.set('db', db)
-// }).catch( err => console.log(err) )
+massive ( CONNECTION_STRING ).then( db => {
+    app.set('db', db)
+    console.log('connected to db')
+}).catch( err => console.log(err) )
 
-//const  = require('./')
 
 //app.get('/', )
 //app.post('/', )
@@ -25,5 +26,5 @@ app.use(bodyParser.json())
 
 const PORT = 4200
 app.listen(PORT, () => {
-    console.log('listening on port:', PORT)
+    console.log('Are you feeling lucky', PORT,'?')
 })
