@@ -8,7 +8,7 @@ import Wizard from './component/Wizard'
 import Header from './component/Header'
 
 //routing
-import { Link, Route, Switch } from 'react-router-dom'
+import { Route, Switch } from 'react-router-dom'
 
 class App extends Component {
   render() {
