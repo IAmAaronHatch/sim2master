@@ -2,6 +2,7 @@
 const express = require('express')
 const bodyParser = require('body-parser')
 const massive = require('massive')
+const controller = require('./controller')
 require('dotenv').config()
 
 
@@ -17,7 +18,7 @@ massive ( CONNECTION_STRING ).then( db => {
 }).catch( err => console.log(err) )
 
 
-//app.get('/', )
+app.get('/api/houses', controller.getHouses)
 //app.post('/', )
 //app.put('/', )
 //app.delete('/', )
