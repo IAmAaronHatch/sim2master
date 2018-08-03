@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import axios from 'axios'
 import House from './House'
 
+
 import {Link} from 'react-router-dom'
 // import { connect } from 'react-redux'
 // import {getHouses} from '../ducks/reducer'
@@ -39,7 +40,7 @@ class Dashboard extends Component {
         return (
             <div className='Main-DashBoard'>
                 <h1>Dashboard</h1>
-                    <Link to='/wizard'><button>Add New Property</button></Link>
+                    <Link to='/wizard/step1'><button>Add New Property</button></Link>
 
 
                 <h3>Home Listings</h3>

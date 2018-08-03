@@ -1,86 +1,55 @@
 import React, { Component } from 'react'
-import axios from 'axios'
-
-class Wizard extends Component {
-    constructor() {
-        super()
-
-        this.state = {
-            name: '',
-            address: '',
-            city: '',
-            state: '',
-            zipcode: 0,
-            houses: [],
-
-        }
-    }
-
-    handleName = (e) => {
-        this.setState({
-            name: e.target.value
-        })
-    }
-    handleAddress = (e) => {
-        this.setState({
-            address: e.target.value
-        })
-    }
-    handleCity = (e) => {
-        this.setState({
-            city: e.target.value
-        })
-    }
-    handleState = (e) => {
-        this.setState({
-            state: e.target.value
-        })
-    }
-    handleZip = (e) => {
-        this.setState({
-            zipcode: e.target.value
-        })
-    }
+// import axios from 'axios'
+import { Link } from 'react-router-dom'
+import { connect } from 'react-redux'
+import { addName, addAddress, addCity, addState, addZipcode } from '../ducks/reducer'
 
 
-    addHouse = () => {
-        const { name, address, city, state, zipcode } = this.state
-        const newHouse = { name, address, city, state, zipcode }
-        axios.post('/api/house', newHouse).then(results => {
-            this.setState({
-                houses: results.data,
 
-            })
-        })
-    }
-
-
+class StepOne extends Component {
     render() {
         return (
             <div>
-                <h2>Add New Listing</h2>
-                <Link to='/'><button>Cancel</button></Link>
+                <input type='text' 
+                //value={this.state.name} 
+                onChange={this.props.addName} 
+                placeholder='name' />
 
-                <input type='text' value={this.state.name} onChange={this.handleName} placeholder='name' />
+                <input type='text' 
+                // value={this.state.address} 
+                onChange={this.props.addAddress} 
+                placeholder='address' />
 
+                <input type='text' 
+                // value={this.state.city} 
+                onChange={this.props.addCity} 
+                placeholder='city' />
 
-                <input type='text' value={this.state.address} onChange={this.handleAddress} placeholder='address' />
+                <input type='text' 
+                // value={this.state.state} 
+                onChange={this.props.addState} 
+                placeholder='state' />
 
+                <input type='number' 
+                // value={this.state.zipcode} 
+                onChange={this.props.addZipcode}  
+                placeholder='zipcode' />
 
-                <input type='text' value={this.state.city} onChange={this.handleCity} placeholder='city' />
-
-
-                <input type='text' value={this.state.state} onChange={this.handleState} placeholder='state' />
-
-
-                <input type='number' value={this.state.zipcode} onChange={this.handleZip} placeholder='zipcode' />
-
-                <button onClick={this.addHouse}>Add House</button>
-                <Link to='/'><button onClick={this.addHouse}>Home</button></Link>
-
+                <Link to='/'><button>Back</button></Link>
+                <Link to='/wizard/step2'><button>Next</button></Link>
             </div>
         )
     }
 }
 
-export default Wizard
+let mapStateToProps = (state) => {
+    return {
+        name: state.name,
+        address: state.address,
+        city: state.city,
+        state: state.state,
+        zipcode: state.zipcode
+    }
+}
+
+export default connect(mapStateToProps, {addName, addAddress, addCity, addState, addZipcode})(StepOne)

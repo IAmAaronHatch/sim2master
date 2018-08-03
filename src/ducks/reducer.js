@@ -14,6 +14,7 @@ let initialState = {
 
 const FULFILLED = '_FULFILLED'
 const GET_HOUSES = 'GET_HOUSES'
+const ADD_HOUSE = 'ADD_HOUSE'
 const REMOVE_HOUSE = 'REMOVE_HOUSE'
 const ADD_NAME = 'ADD_NAME'
 const ADD_ADDRESS = 'ADD_ADDRESS'
@@ -34,6 +35,17 @@ export function getHouses() {
         type: GET_HOUSES,
         payload: houseList,
     }
+}
+
+export function addHouse(){
+    let houseList = axios.post('/api/house').then(results => {
+        return results.data
+    })
+    return {
+        type: ADD_HOUSE,
+        payload: houseList,
+    }
+
 }
 
 export function removeHouse(id) {
@@ -102,6 +114,8 @@ export default function reducer(state = initialState, action) {
             return Object.assign({}, state, { houseList: action.payload })
         // case REMOVE_HOUSE + FULFILLED:
         //     return Object.assign({}, state, {})
+        case ADD_HOUSE+ + FULFILLED:
+            return Object.assign({}, state, {houseList: action.payload})
         case ADD_NAME + FULFILLED:
             return Object.assign({}, state, {name:action.paylaod})
         case ADD_ADDRESS + FULFILLED:

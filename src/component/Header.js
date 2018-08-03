@@ -1,9 +1,11 @@
 import React from 'react'
 
-function Header () {
+function Header() {
     return (
         <div>
-            Header
+            <h2>
+                Houser
+            </h2>
         </div>
     )
 }
